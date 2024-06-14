@@ -13,18 +13,26 @@
                     <br>
                     <form action="{{route('contatos.store')}}" method="POST">
                         @csrf <!-- Segurança dos dados do Formulário -->
-                        <label id="lnome" for="nome">Nome: </label>
-                        <input id="nome" name="nome" type="text"><br>
-                        <label id="lemail" for="email">e-mail: </label>
-                        <input id="email" name="email" type="text"><br>
-                        <label id="ltelefone" for="telefone">Telefone: </label>
-                        <input id="telefone" name="telefone" type="text"><br>
-                        <label id="lcidade" for="cidade">Cidade: </label>
-                        <input id="cidade" name="cidade" type="text"><br>
-                        <label id="lestado" for="estado">Estado: </label>
-                        <input id="estado" name="estado" type="text"><br>
-                        <br>
-                        <button type="submit">Salvar</button> <button type="reset">Limpar</button>
+                        <x-input-label for="nome" :value="__('Nome')" />
+                        <x-text-input id="nome" class="block mt-1 w-full" type="text" name="nome" :value="old('nome')" required autofocus autocomplete="nome" />
+                        <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                        <x-input-label id="lemail" for="email"  :value="__('e-mail')" />
+                        <x-text-input id="email" name="email" type="text" class="block mt-1 w-full" :value="old('email')" required autofocus autocomplete="email" />
+                        <x-input-error :messages="$errors->get('email')" class="mt-2" />
+                        <x-input-label id="ltelefone" for="telefone" :value="__('Telefone')" />
+                        <x-text-input id="telefone" name="telefone" type="text" class="block mt-1 w-full" :value="old('telefone')" required autofocus autocomplete="telefone" />
+                        <x-input-label id="lcidade" for="cidade" :value="__('Cidade')" />
+                        <x-text-input id="cidade" name="cidade" type="text" class="block mt-1 w-full" :value="old('cidade')" required autofocus autocomplete="cidade"/>
+                        <x-input-label id="lestado" for="estado" :value="__('Estado')" />
+                        <x-text-input id="estado" name="estado" type="text" class="block mt-1 w-full" :value="old('estado')" required autofocus autocomplete="estado"/>
+                        <div class="flex items-center justify-end mt-4">
+                            <x-primary-button type="submit" class="ms-4">
+                                {{ __('Salvar') }}
+                            </x-primary-button>
+                            <x-secondary-button type="reset" class="ms-4">
+                                {{ __('Limpar') }}
+                            </x-secondary-button>
+                        </div>
                     </form>
                     <br>
                     <a href="{{url('contatos/')}}">Voltar</a>
