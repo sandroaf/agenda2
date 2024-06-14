@@ -15,10 +15,10 @@
 
                     <br><br>
                     @foreach($contatos as $contato)
-                    <ul role="list" class="divide-y divide-gray-100">
+                    <ul role="list" class="divide-y divide-gray-100 flex-auto">
                         <li class="flex justify-between gap-x-6 py-5">
-                            <div class="flex min-w-0 gap-x-4">
-                            <a href="{{url('contatos')}}/{{ $contato->id }}">
+                            <div class="flex min-w-0">
+                            <a href="{{url('contatos')}}/{{ $contato->id }}" class="flex">
                                 <div class="min-w-0 flex-auto">
                                 <p class="text-sm font-semibold leading-6 text-gray-900">{{ $contato->id }} - {{ $contato->nome }}</p>
                                 </div>
